@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="bankaPU" transaction-type="JTA">
+        <jta-data-source>jdbc/banka</jta-data-source>
+        <class>com.example.onlineaplication.ejb.grad.Grad</class>
+        <class>com.example.onlineaplication.ejb.paketi.Paketi</class>
+        <class>com.example.onlineaplication.ejb.drzava.Drzava</class>
+        <class>com.example.onlineaplication.ejb.proizvodi.Proizvodi</class>
+        <class>com.example.onlineaplication.ejb.statusAplikacije.StatusAplikacije</class>
+        <class>com.example.onlineaplication.ejb.klijenti.Klijenti</class>
+        <class>com.example.onlineaplication.ejb.adresa.Adresa</class>
+        <class>com.example.onlineaplication.ejb.aplikacija.Aplikacija</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/banka?serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.password" value="root"/>
+        </properties>
+    </persistence-unit>
+</persistence>
