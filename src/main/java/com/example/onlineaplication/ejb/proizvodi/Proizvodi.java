@@ -4,7 +4,6 @@ package com.example.onlineaplication.ejb.proizvodi;
 import com.example.onlineaplication.ejb.aplikacija.Aplikacija;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -42,8 +41,8 @@ public class Proizvodi implements Serializable {
     @Basic(optional = false)
     @Column(name = "trazeni_iznos")
     private int trazeniIznos;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "proizvodi")
-    private List<Aplikacija> aplikacijaList;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "proizvodi")
+    private Aplikacija aplikacija;
 
     public Proizvodi() {
     }
@@ -82,12 +81,12 @@ public class Proizvodi implements Serializable {
         this.trazeniIznos = trazeniIznos;
     }
 
-    public List<Aplikacija> getAplikacijaList() {
-        return aplikacijaList;
+    public Aplikacija getAplikacija() {
+        return aplikacija;
     }
 
-    public void setAplikacijaList(List<Aplikacija> aplikacijaList) {
-        this.aplikacijaList = aplikacijaList;
+    public void setAplikacija(Aplikacija aplikacija) {
+        this.aplikacija = aplikacija;
     }
 
     @Override
@@ -116,4 +115,3 @@ public class Proizvodi implements Serializable {
     }
 
 }
-

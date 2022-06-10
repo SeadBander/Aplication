@@ -1,8 +1,8 @@
 package com.example.onlineaplication.ejb.klijenti;
 
-
 import com.example.onlineaplication.ejb.adresa.Adresa;
 import com.example.onlineaplication.ejb.aplikacija.Aplikacija;
+import com.example.onlineaplication.ejb.grad.Grad;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -76,9 +76,9 @@ public class Klijenti implements Serializable {
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
-    @JoinColumn(name = "id_adresa", referencedColumnName = "adresa_id")
+    @JoinColumn(name = "id_grad", referencedColumnName = "grad_id")
     @ManyToOne(optional = false)
-    private Adresa idAdresa;
+    private Grad idGrad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idKlijenta")
     private List<Aplikacija> aplikacijaList;
 
@@ -181,12 +181,12 @@ public class Klijenti implements Serializable {
         this.password = password;
     }
 
-    public Adresa getIdAdresa() {
-        return idAdresa;
+    public Grad getIdGrad() {
+        return idGrad;
     }
 
-    public void setIdAdresa(Adresa idAdresa) {
-        this.idAdresa = idAdresa;
+    public void setIdGrad(Grad idGrad) {
+        this.idGrad = idGrad;
     }
 
     public List<Aplikacija> getAplikacijaList() {
@@ -223,4 +223,3 @@ public class Klijenti implements Serializable {
     }
 
 }
-

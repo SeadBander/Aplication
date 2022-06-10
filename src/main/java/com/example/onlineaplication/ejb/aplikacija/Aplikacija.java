@@ -8,7 +8,20 @@ import com.example.onlineaplication.ejb.statusAplikacije.StatusAplikacije;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -18,17 +31,16 @@ import javax.persistence.*;
 @Table(name = "aplikacija")
 @NamedQueries({
         @NamedQuery(name = "Aplikacija.findAll", query = "SELECT a FROM Aplikacija a"),
-        @NamedQuery(name = "Aplikacija.findByAplikacijaId", query = "SELECT a FROM Aplikacija a WHERE a.aplikacijaId = :aplikacijaId"),
-        @NamedQuery(name = "Aplikacija.findByDatumAplikacije", query = "SELECT a FROM Aplikacija a WHERE a.datumAplikacije = :datumAplikacije"),
-        @NamedQuery(name = "Aplikacija.findByIdProizvoda", query = "SELECT a FROM Aplikacija a WHERE a.idProizvoda = :idProizvoda")})
+        @NamedQuery(name = "Aplikacija.findByIdProizvoda", query = "SELECT a FROM Aplikacija a WHERE a.idProizvoda = :idProizvoda"),
+        @NamedQuery(name = "Aplikacija.findByDatumAplikacije", query = "SELECT a FROM Aplikacija a WHERE a.datumAplikacije = :datumAplikacije")})
 public class Aplikacija implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "aplikacija_id")
-    private Aplikacija aplikacijaId;
+    @Column(name = "id_proizvoda")
+    private Integer idProizvoda;
     @Basic(optional = false)
     @Column(name = "datum_aplikacije")
     @Temporal(TemporalType.DATE)
@@ -40,37 +52,31 @@ public class Aplikacija implements Serializable {
     @ManyToOne(optional = false)
     private Paketi idPaketa;
     @JoinColumn(name = "id_proizvoda", referencedColumnName = "proizvodi_id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false)
     private Proizvodi proizvodi;
     @JoinColumn(name = "id_status", referencedColumnName = "status_aplikacije_id")
     @ManyToOne(optional = false)
     private StatusAplikacije idStatus;
 
-    public Aplikacija getAplikacijaId() {
-        return aplikacijaId;
-    }
-
-    public void setAplikacijaId(Aplikacija aplikacijaId) {
-        this.aplikacijaId = aplikacijaId;
-    }
-
-    public Aplikacija(Aplikacija aplikacijaId, Date datumAplikacije, Klijenti idKlijenta, Paketi idPaketa, Proizvodi proizvodi, StatusAplikacije idStatus) {
-        this.aplikacijaId = aplikacijaId;
-        this.datumAplikacije = datumAplikacije;
-        this.idKlijenta = idKlijenta;
-        this.idPaketa = idPaketa;
-        this.proizvodi = proizvodi;
-        this.idStatus = idStatus;
-    }
-
     public Aplikacija() {
     }
 
-
-    public Aplikacija(int aplikacijaId, int idProizvoda) {
-        this.aplikacijaId = new Aplikacija(aplikacijaId, idProizvoda);
+    public Aplikacija(Integer idProizvoda) {
+        this.idProizvoda = idProizvoda;
     }
 
+    public Aplikacija(Integer idProizvoda, Date datumAplikacije) {
+        this.idProizvoda = idProizvoda;
+        this.datumAplikacije = datumAplikacije;
+    }
+
+    public Integer getIdProizvoda() {
+        return idProizvoda;
+    }
+
+    public void setIdProizvoda(Integer idProizvoda) {
+        this.idProizvoda = idProizvoda;
+    }
 
     public Date getDatumAplikacije() {
         return datumAplikacije;
@@ -115,7 +121,7 @@ public class Aplikacija implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (aplikacijaId != null ? aplikacijaId.hashCode() : 0);
+        hash += (idProizvoda != null ? idProizvoda.hashCode() : 0);
         return hash;
     }
 
@@ -126,7 +132,7 @@ public class Aplikacija implements Serializable {
             return false;
         }
         Aplikacija other = (Aplikacija) object;
-        if ((this.aplikacijaId == null && other.aplikacijaId != null) || (this.aplikacijaId != null && !this.aplikacijaId.equals(other.aplikacijaId))) {
+        if ((this.idProizvoda == null && other.idProizvoda != null) || (this.idProizvoda != null && !this.idProizvoda.equals(other.idProizvoda))) {
             return false;
         }
         return true;
@@ -134,8 +140,7 @@ public class Aplikacija implements Serializable {
 
     @Override
     public String toString() {
-        return "com.example.onlineaplication.ejb.aplikacija.Aplikacija[ aplikacija=" + aplikacijaId + " ]";
+        return "com.example.onlineaplication.ejb.aplikacija.Aplikacija[ idProizvoda=" + idProizvoda + " ]";
     }
 
 }
-

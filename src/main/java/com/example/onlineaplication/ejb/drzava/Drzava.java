@@ -103,4 +103,3 @@ public class Drzava implements Serializable {
     }
 
 }
-

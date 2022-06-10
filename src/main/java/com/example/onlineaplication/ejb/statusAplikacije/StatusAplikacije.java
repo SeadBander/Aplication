@@ -103,4 +103,3 @@ public class StatusAplikacije implements Serializable {
     }
 
 }
-
