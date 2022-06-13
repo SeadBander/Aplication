@@ -1,6 +1,6 @@
 package com.example.onlineaplication.ejb.grad;
 
-import com.example.onlineaplication.ejb.AbstractService;
+import com.example.onlineaplication.controller.AbstractService;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

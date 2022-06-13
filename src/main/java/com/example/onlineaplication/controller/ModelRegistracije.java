@@ -1,7 +1,5 @@
-package com.example.onlineaplication.ejb.klijenti;
+package com.example.onlineaplication.controller;
 
-import com.example.onlineaplication.ejb.adresa.Adresa;
-import com.example.onlineaplication.ejb.grad.Grad;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,7 +11,6 @@ public class ModelRegistracije {
 
     private String ime;
     private String prezime;
-    private Date datumRodjenja;
     private String spol;
     private Integer telefon;
     private Integer jmbg;

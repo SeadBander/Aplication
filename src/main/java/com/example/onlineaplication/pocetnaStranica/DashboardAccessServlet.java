@@ -1,7 +1,7 @@
 package com.example.onlineaplication.pocetnaStranica;
 
 
-import com.example.onlineaplication.Smjernice;
+import com.example.onlineaplication.sesija.Smjernice;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

@@ -1,4 +1,4 @@
-package com.example.onlineaplication.ejb.klijenti;
+package com.example.onlineaplication.controller;
 
 import lombok.Data;
 

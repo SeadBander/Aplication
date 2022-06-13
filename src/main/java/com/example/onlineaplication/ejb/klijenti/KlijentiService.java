@@ -1,15 +1,15 @@
 package com.example.onlineaplication.ejb.klijenti;
 
-import com.example.onlineaplication.ejb.AbstractService;
+import com.example.onlineaplication.controller.AbstractService;
+import com.example.onlineaplication.controller.ModelPrijave;
+import com.example.onlineaplication.controller.ModelRegistracije;
 import com.example.onlineaplication.ejb.grad.Grad;
 import com.example.onlineaplication.ejb.grad.GradServiceLocal;
-import jakarta.ejb.Local;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.*;
 import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 @Stateless
@@ -53,7 +53,6 @@ public class KlijentiService extends AbstractService<Klijenti> implements Klijen
             klijenti = new Klijenti();
             klijenti.setIme(modelRegistracije.getIme());
             klijenti.setPrezime(modelRegistracije.getPrezime());
-            klijenti.setDatumRodjenja(modelRegistracije.getDatumRodjenja());
             klijenti.setSpol(modelRegistracije.getSpol());
             klijenti.setTelefon(modelRegistracije.getTelefon());
             klijenti.setJmbg(modelRegistracije.getJmbg());

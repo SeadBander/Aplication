@@ -1,12 +1,12 @@
-package com.example.onlineaplication;
+package com.example.onlineaplication.sesija;
 
 public interface Smjernice {
-    String AUTHENTICATION = "authentication/login.jsp";
-    String AUTHENTICATION_BACK = "../authentication/login.jsp";
-    String REGISTRATION = "registration/register.jsp";
+    String AUTHENTICATION = "login/login.jsp";
+    String AUTHENTICATION_BACK = "../login/login.jsp";
+    String REGISTRATION = "login/registracija.jsp";
     String DASHBOARD_ACCESS = "dashboardAccess";
-    String DASHBOARD = "dashboard/dashboard.jsp";
-    String DASHBOARD_BACK = "../dashboard/dashboard.jsp";
+    String DASHBOARD = "login/aplikacija.jsp";
+    String DASHBOARD_BACK = "../aplikacija/aplikacija.jsp";
     String UPDATE_CREDENTIAL = "dashboard/updateUser.jsp";
     String SERVICE_TYPE = "dashboard/administrator/serviceType.jsp";
     String DISCOUNT_RULE = "dashboard/administrator/discountRule.jsp";

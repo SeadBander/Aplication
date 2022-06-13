@@ -5,6 +5,8 @@ import com.example.onlineaplication.ejb.aplikacija.Aplikacija;
 import com.example.onlineaplication.ejb.grad.Grad;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -34,7 +36,6 @@ import javax.persistence.TemporalType;
         @NamedQuery(name = "Klijenti.findByKlijentId", query = "SELECT k FROM Klijenti k WHERE k.klijentId = :klijentId"),
         @NamedQuery(name = "Klijenti.findByIme", query = "SELECT k FROM Klijenti k WHERE k.ime = :ime"),
         @NamedQuery(name = "Klijenti.findByPrezime", query = "SELECT k FROM Klijenti k WHERE k.prezime = :prezime"),
-        @NamedQuery(name = "Klijenti.findByDatumRodjenja", query = "SELECT k FROM Klijenti k WHERE k.datumRodjenja = :datumRodjenja"),
         @NamedQuery(name = "Klijenti.findBySpol", query = "SELECT k FROM Klijenti k WHERE k.spol = :spol"),
         @NamedQuery(name = "Klijenti.findByTelefon", query = "SELECT k FROM Klijenti k WHERE k.telefon = :telefon"),
         @NamedQuery(name = "Klijenti.findByJmbg", query = "SELECT k FROM Klijenti k WHERE k.jmbg = :jmbg"),
@@ -55,10 +56,7 @@ public class Klijenti implements Serializable {
     @Basic(optional = false)
     @Column(name = "prezime")
     private String prezime;
-    @Basic(optional = false)
-    @Column(name = "datum_rodjenja")
-    @Temporal(TemporalType.DATE)
-    private Date datumRodjenja;
+
     @Basic(optional = false)
     @Column(name = "spol")
     private String spol;
@@ -66,7 +64,7 @@ public class Klijenti implements Serializable {
     private Integer telefon;
     @Basic(optional = false)
     @Column(name = "jmbg")
-    private int jmbg;
+    private Integer jmbg;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -82,6 +80,7 @@ public class Klijenti implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idKlijenta")
     private List<Aplikacija> aplikacijaList;
 
+
     public Klijenti() {
     }
 
@@ -89,16 +88,16 @@ public class Klijenti implements Serializable {
         this.klijentId = klijentId;
     }
 
-    public Klijenti(Integer klijentId, String ime, String prezime, Date datumRodjenja, String spol, int jmbg, String email, String username, String password) {
+    public Klijenti(Integer klijentId, String ime, String prezime, String spol, Integer jmbg, String email, String username, String password, Grad idGrad) {
         this.klijentId = klijentId;
         this.ime = ime;
         this.prezime = prezime;
-        this.datumRodjenja = datumRodjenja;
         this.spol = spol;
         this.jmbg = jmbg;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.idGrad = idGrad;
     }
 
     public Integer getKlijentId() {
@@ -125,13 +124,6 @@ public class Klijenti implements Serializable {
         this.prezime = prezime;
     }
 
-    public Date getDatumRodjenja() {
-        return datumRodjenja;
-    }
-
-    public void setDatumRodjenja(Date datumRodjenja) {
-        this.datumRodjenja = datumRodjenja;
-    }
 
     public String getSpol() {
         return spol;
@@ -149,7 +141,7 @@ public class Klijenti implements Serializable {
         this.telefon = telefon;
     }
 
-    public int getJmbg() {
+    public Integer getJmbg() {
         return jmbg;
     }
 

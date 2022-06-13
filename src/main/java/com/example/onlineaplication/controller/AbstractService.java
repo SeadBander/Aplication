@@ -1,4 +1,4 @@
-package com.example.onlineaplication.ejb;
+package com.example.onlineaplication.controller;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -22,9 +22,7 @@ public abstract class AbstractService<T> {
         getEntityManager().merge(entity);
     }
 
-    public void remove(T entity) {
-        getEntityManager().remove(getEntityManager().merge(entity));
-    }
+    public void remove(T entity) { getEntityManager().remove(entity);}
 
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
