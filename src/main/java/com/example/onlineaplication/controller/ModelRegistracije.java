@@ -11,7 +11,6 @@ public class ModelRegistracije {
 
     private String ime;
     private String prezime;
-    private String spol;
     private Integer telefon;
     private Integer jmbg;
     private String grad;

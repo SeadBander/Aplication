@@ -9,6 +9,7 @@ import jakarta.persistence.PersistenceContext;
 public class AplikacijaService extends AbstractService<Aplikacija> implements AplikacijaServiceLocal {
 
     @PersistenceContext(unitName = "bankaPU")
+
     private EntityManager entityManager;
 
     public AplikacijaService() {
@@ -19,8 +20,4 @@ public class AplikacijaService extends AbstractService<Aplikacija> implements Ap
         return entityManager;
     }
 
-    @Override
-    public void invalidateCache() {
-        entityManager.getEntityManagerFactory().getCache().evictAll();
-    }
 }

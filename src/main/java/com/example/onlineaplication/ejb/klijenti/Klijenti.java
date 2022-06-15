@@ -1,13 +1,9 @@
 package com.example.onlineaplication.ejb.klijenti;
 
-import com.example.onlineaplication.ejb.adresa.Adresa;
 import com.example.onlineaplication.ejb.aplikacija.Aplikacija;
 import com.example.onlineaplication.ejb.grad.Grad;
 
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -16,14 +12,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -36,9 +28,9 @@ import javax.persistence.TemporalType;
         @NamedQuery(name = "Klijenti.findByKlijentId", query = "SELECT k FROM Klijenti k WHERE k.klijentId = :klijentId"),
         @NamedQuery(name = "Klijenti.findByIme", query = "SELECT k FROM Klijenti k WHERE k.ime = :ime"),
         @NamedQuery(name = "Klijenti.findByPrezime", query = "SELECT k FROM Klijenti k WHERE k.prezime = :prezime"),
-        @NamedQuery(name = "Klijenti.findBySpol", query = "SELECT k FROM Klijenti k WHERE k.spol = :spol"),
         @NamedQuery(name = "Klijenti.findByTelefon", query = "SELECT k FROM Klijenti k WHERE k.telefon = :telefon"),
         @NamedQuery(name = "Klijenti.findByJmbg", query = "SELECT k FROM Klijenti k WHERE k.jmbg = :jmbg"),
+        @NamedQuery(name = "Klijenti.findByIdGrad", query = "SELECT k FROM Klijenti k WHERE k.idGrad = :idGrad"),
         @NamedQuery(name = "Klijenti.findByEmail", query = "SELECT k FROM Klijenti k WHERE k.email = :email"),
         @NamedQuery(name = "Klijenti.findByUsername", query = "SELECT k FROM Klijenti k WHERE k.username = :username"),
         @NamedQuery(name = "Klijenti.findByPassword", query = "SELECT k FROM Klijenti k WHERE k.password = :password")})
@@ -56,15 +48,14 @@ public class Klijenti implements Serializable {
     @Basic(optional = false)
     @Column(name = "prezime")
     private String prezime;
-
-    @Basic(optional = false)
-    @Column(name = "spol")
-    private String spol;
     @Column(name = "telefon")
     private Integer telefon;
     @Basic(optional = false)
     @Column(name = "jmbg")
-    private Integer jmbg;
+    private int jmbg;
+    @Basic(optional = false)
+    @Column(name = "id_grad")
+    private Grad idGrad;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -74,12 +65,8 @@ public class Klijenti implements Serializable {
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
-    @JoinColumn(name = "id_grad", referencedColumnName = "grad_id")
-    @ManyToOne(optional = false)
-    private Grad idGrad;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idKlijenta")
     private List<Aplikacija> aplikacijaList;
-
 
     public Klijenti() {
     }
@@ -88,16 +75,15 @@ public class Klijenti implements Serializable {
         this.klijentId = klijentId;
     }
 
-    public Klijenti(Integer klijentId, String ime, String prezime, String spol, Integer jmbg, String email, String username, String password, Grad idGrad) {
+    public Klijenti(Integer klijentId, String ime, String prezime, int jmbg, Grad idGrad, String email, String username, String password) {
         this.klijentId = klijentId;
         this.ime = ime;
         this.prezime = prezime;
-        this.spol = spol;
         this.jmbg = jmbg;
+        this.idGrad = idGrad;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.idGrad = idGrad;
     }
 
     public Integer getKlijentId() {
@@ -124,15 +110,6 @@ public class Klijenti implements Serializable {
         this.prezime = prezime;
     }
 
-
-    public String getSpol() {
-        return spol;
-    }
-
-    public void setSpol(String spol) {
-        this.spol = spol;
-    }
-
     public Integer getTelefon() {
         return telefon;
     }
@@ -141,12 +118,20 @@ public class Klijenti implements Serializable {
         this.telefon = telefon;
     }
 
-    public Integer getJmbg() {
+    public int getJmbg() {
         return jmbg;
     }
 
     public void setJmbg(int jmbg) {
         this.jmbg = jmbg;
+    }
+
+    public Grad getIdGrad() {
+        return idGrad;
+    }
+
+    public void setIdGrad(Grad idGrad) {
+        this.idGrad = idGrad;
     }
 
     public String getEmail() {
@@ -171,14 +156,6 @@ public class Klijenti implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Grad getIdGrad() {
-        return idGrad;
-    }
-
-    public void setIdGrad(Grad idGrad) {
-        this.idGrad = idGrad;
     }
 
     public List<Aplikacija> getAplikacijaList() {
@@ -215,3 +192,4 @@ public class Klijenti implements Serializable {
     }
 
 }
+

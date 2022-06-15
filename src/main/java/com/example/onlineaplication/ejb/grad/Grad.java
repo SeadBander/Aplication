@@ -1,13 +1,10 @@
 package com.example.onlineaplication.ejb.grad;
 
 
-import com.example.onlineaplication.ejb.adresa.Adresa;
 import com.example.onlineaplication.ejb.drzava.Drzava;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -41,8 +37,6 @@ public class Grad implements Serializable {
     @Basic(optional = false)
     @Column(name = "naziv_grada")
     private String nazivGrada;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idGrad")
-    private List<Adresa> adresaList;
     @JoinColumn(name = "id_drzava", referencedColumnName = "drzava_id")
     @ManyToOne(optional = false)
     private Drzava idDrzava;
@@ -73,14 +67,6 @@ public class Grad implements Serializable {
 
     public void setNazivGrada(String nazivGrada) {
         this.nazivGrada = nazivGrada;
-    }
-
-    public List<Adresa> getAdresaList() {
-        return adresaList;
-    }
-
-    public void setAdresaList(List<Adresa> adresaList) {
-        this.adresaList = adresaList;
     }
 
     public Drzava getIdDrzava() {
@@ -117,3 +103,4 @@ public class Grad implements Serializable {
     }
 
 }
+

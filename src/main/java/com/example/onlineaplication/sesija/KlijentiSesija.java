@@ -38,7 +38,7 @@ public enum KlijentiSesija {
         try {
             HttpSession session = request.getSession();
             session.invalidate();
-            response.sendRedirect("register.jsp");
+            response.sendRedirect("registracija.jsp");
         } catch (IOException ex) {
             Logger.getLogger(KlijentiSesija.class.getName()).info(ex.getMessage());
         }

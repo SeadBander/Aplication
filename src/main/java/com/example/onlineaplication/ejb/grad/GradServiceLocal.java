@@ -17,7 +17,4 @@ public interface GradServiceLocal {
 
     List<Grad> findAll();
 
-    List<Grad> findRange(int[] range);
-
-    int count();
 }

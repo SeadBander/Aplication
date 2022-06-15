@@ -20,10 +20,6 @@ public interface KlijentiServiceLocal {
 
     List<Klijenti> findAll();
 
-    List<Klijenti> findRange(int[] range);
-
-    int count();
-
     Klijenti findByUsername(String username);
 
     Klijenti registracija(ModelRegistracije modelRegistracije);

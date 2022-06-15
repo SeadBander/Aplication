@@ -6,12 +6,9 @@
     <persistence-unit name="bankaPU" transaction-type="JTA">
         <jta-data-source>jdbc/banka</jta-data-source>
         <class>com.example.onlineaplication.ejb.grad.Grad</class>
-        <class>com.example.onlineaplication.ejb.paketi.Paketi</class>
         <class>com.example.onlineaplication.ejb.drzava.Drzava</class>
         <class>com.example.onlineaplication.ejb.proizvodi.Proizvodi</class>
-        <class>com.example.onlineaplication.ejb.statusAplikacije.StatusAplikacije</class>
         <class>com.example.onlineaplication.ejb.klijenti.Klijenti</class>
-        <class>com.example.onlineaplication.ejb.adresa.Adresa</class>
         <class>com.example.onlineaplication.ejb.aplikacija.Aplikacija</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/banka?serverTimezone=UTC"/>

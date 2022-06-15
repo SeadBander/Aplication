@@ -13,7 +13,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "RegisterDispatcherServlet", value = "/register")
+@WebServlet(name = "RegisterDispatcherServlet", value = "/registracija")
 public class RegisterDispatcherServlet extends HttpServlet {
 
     @Inject
@@ -22,14 +22,13 @@ public class RegisterDispatcherServlet extends HttpServlet {
     @Inject
     private GradServiceLocal gradServiceLocal;
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         ModelRegistracije modelRegistracije = ModelRegistracije.builder()
                 .ime(request.getParameter("ime"))
                 .prezime(request.getParameter("prezime"))
-                .spol(request.getParameter("spol"))
+                .telefon(Integer.valueOf(request.getParameter("telefon")))
                 .jmbg(Integer.valueOf(request.getParameter("jmbg")))
                 .email(request.getParameter("email"))
                 .username(request.getParameter("username"))
@@ -39,13 +38,13 @@ public class RegisterDispatcherServlet extends HttpServlet {
         RegistracijaController controller = new RegistracijaController(klijentiServiceLocal, modelRegistracije);
         if (controller.ispravnaRegistracija()) {
             if (controller.usernameZauzeto()) {
-                List<Grad> gradList = gradServiceLocal.findAll();
-                request.setAttribute("gradovi", gradList);
                 request.setAttribute("message", String.format("Username '%s' je zauzet", modelRegistracije.getUsername()));
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher(Smjernice.REGISTRATION);
                 requestDispatcher.include(request, response);
             } else {
                 Klijenti klijenti = klijentiServiceLocal.registracija(modelRegistracije);
+                List<Grad> gradList = gradServiceLocal.findAll();
+                request.setAttribute("gradovi", gradList);
                 if (klijenti != null) {
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher(Smjernice.AUTHENTICATION);
                     requestDispatcher.include(request, response);

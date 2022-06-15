@@ -33,19 +33,4 @@ public abstract class AbstractService<T> {
         criteriaQuery.select(criteriaQuery.from(entityClass));
         return getEntityManager().createQuery(criteriaQuery).getResultList();
     }
-    public List<T> findRange(int[] range) {
-        CriteriaQuery criteriaQuery = getEntityManager().getCriteriaBuilder().createQuery();
-        criteriaQuery.select(criteriaQuery.from(entityClass));
-        Query query = getEntityManager().createQuery(criteriaQuery);
-        query.setMaxResults(range[1] - range[0] + 1);
-        query.setFirstResult(range[0]);
-        return query.getResultList();
-    }
-    public int count() {
-        CriteriaQuery criteriaQuery = getEntityManager().getCriteriaBuilder().createQuery();
-        Root<T> root = criteriaQuery.from(entityClass);
-        criteriaQuery.select(getEntityManager().getCriteriaBuilder().count(root));
-        Query query = getEntityManager().createQuery(criteriaQuery);
-        return ((Long) query.getSingleResult()).intValue();
-    }
 }

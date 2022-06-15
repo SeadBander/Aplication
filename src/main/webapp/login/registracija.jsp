@@ -3,63 +3,95 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Registracija</title>
-    <link rel="stylesheet" type="text/css" href="login/registracija.css">
+    <link rel="stylesheet" type="text/css" href="registracija.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 </head>
 <body>
-<div style="padding:20px">
-    <h3 class="container">Registracija korisnika</h3>
 
-    <form action="registracija" method="post" style="border:1px solid #ccc; padding: 20px;">
+<form action="login.jsp" method="post" style="border:1px solid #ccc; padding: 20px;">
+<section class="h-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card card-registration my-4">
+                    <div class="row g-0">
+                        <div class="col-xl-6 d-none d-xl-block">
+                            <img src="/css/slika1.jpg"
+                                 alt="Sample photo" class="img-fluid"
+                                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="card-body p-md-5 text-black">
+                                <h3 class="mb-5 text-uppercase">REGISTRACIJA</h3>
 
-        <div class="container">
-                <label class="form-label" for="name" id="fn">Ime :</label>
-                <input id="name" class="form-control" required="true" type="text" name="name"><br/>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example1m">Ime</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example1n">Prezime</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1o" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example1o">Telefon</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                            <input type="text" id="form3Example1p" class="form-control form-control-lg" />
+                                            <label class="form-label" for="form3Example1p">JMBG</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-outline">
+                                        <label class="form-label" for="grad">Town: </label>
+                                        <select id="grad" class="form-control" required="true" name="grad">
+                                            <c:forEach items="${gradList}" var="grad">
+                                                <option>${grad}</option>
+                                            </c:forEach>
+                                        </select><br/><br/>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="form3Example97" class="form-control form-control-lg" />
+                                    <label class="form-label" for="form3Example97">Email</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="username" id="form3Example98" class="form-control form-control-lg" />
+                                    <label class="form-label" for="form3Example98">Username</label>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="form3Example99" class="form-control form-control-lg" />
+                                    <label class="form-label" for="form3Example99">Password</label>
+                                </div>
+
+                                <div class="d-flex justify-content-end pt-3">
+                                    <button type="button" class="btn btn-light btn-lg" onclick="location.href = 'login.jsp'">Nazad na login stranicu</button>
+                                    <button type="button" class="btn btn-warning btn-lg ms-2" >Registuj se!</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="container">
-                <label class="form-label" for="surname" id="ln">Prezime :</label>
-                <input id="surname" class="form-control" required="true" type="text" name="surname"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="spol" id="lp">Spol :</label>
-                <input id="spol" class="form-control" required="true" type="text" name="spol"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="jmbg" id="lm">JMBG :</label>
-                <input id="jmbg" class="form-control" required="true" type="text" name="jmbg"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="email">Email :</label>
-                <input id="email" class="form-control" required="true" type="text" name="email"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="username">Username :</label>
-                <input id="username" class="form-control" required="true" type="text" name="username"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="password">Password :</label>
-                <input id="password" class="form-control" required="true" type="password" name="password"><br/>
-        </div>
-
-        <div class="container">
-                <label class="form-label" for="grad">Grad :</label>
-                <input id="grad" class="form-control" required="true" type="text" name="grad"><br/>
-
-        </div>
-
-        <div class="col-md-6">
-            <button class="col-md-8 btn btn-info" type="submit" value="Submit">Registruj se</button>
-            <button class="col-md-8 btn btn-link" type="button" onclick="location.href = 'login.jsp'">Nazad na login stranicu</button>
-        </div>
-    </form>
-</div>
+    </div>
+</section>
+</form>
 </body>
 </html>
-

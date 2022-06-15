@@ -53,7 +53,6 @@ public class KlijentiService extends AbstractService<Klijenti> implements Klijen
             klijenti = new Klijenti();
             klijenti.setIme(modelRegistracije.getIme());
             klijenti.setPrezime(modelRegistracije.getPrezime());
-            klijenti.setSpol(modelRegistracije.getSpol());
             klijenti.setTelefon(modelRegistracije.getTelefon());
             klijenti.setJmbg(modelRegistracije.getJmbg());
             Grad grad = gradServiceLocal.find(modelRegistracije.getGradId());
