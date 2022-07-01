@@ -1,8 +1,8 @@
 package com.example.onlineaplication.ejb.klijenti;
 
-import com.example.onlineaplication.controller.AbstractService;
-import com.example.onlineaplication.controller.ModelPrijave;
-import com.example.onlineaplication.controller.ModelRegistracije;
+import com.example.onlineaplication.pocetnaStranica.AbstractService;
+import com.example.onlineaplication.controller.login.ModelPrijave;
+import com.example.onlineaplication.controller.registracija.ModelRegistracije;
 import com.example.onlineaplication.ejb.grad.Grad;
 import com.example.onlineaplication.ejb.grad.GradServiceLocal;
 import jakarta.ejb.Stateless;

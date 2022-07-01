@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller;
+package com.example.onlineaplication.controller.login;
 
 import com.example.onlineaplication.ejb.klijenti.Klijenti;
 import com.example.onlineaplication.ejb.klijenti.KlijentiServiceLocal;
@@ -11,8 +11,8 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "UlazniDispatcherServlet", urlPatterns = {"/ulaz"})
-public class UlazniDispatcherServlet extends HttpServlet {
+@WebServlet(name = "LoginDispetcherServlet", urlPatterns = {"/login"})
+public class LoginDispetcherServlet extends HttpServlet {
 
     @Inject
     private KlijentiServiceLocal klijentiServiceLocal;

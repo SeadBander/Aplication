@@ -2,7 +2,6 @@ package com.example.onlineaplication.ejb.aplikacija;
 
 
 import com.example.onlineaplication.ejb.klijenti.Klijenti;
-import com.example.onlineaplication.ejb.proizvodi.Proizvodi;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -40,7 +39,7 @@ public class Aplikacija implements Serializable {
     private Klijenti idKlijenta;
     @JoinColumn(name = "id_proizvoda", referencedColumnName = "proizvodi_id", insertable = false, updatable = false)
     @OneToOne(optional = false)
-    private Proizvodi proizvodi;
+    private String proizvodi;
 
     public Aplikacija() {
     }
@@ -65,11 +64,11 @@ public class Aplikacija implements Serializable {
         this.idKlijenta = idKlijenta;
     }
 
-    public Proizvodi getProizvodi() {
+    public String getProizvodi() {
         return proizvodi;
     }
 
-    public void setProizvodi(Proizvodi proizvodi) {
+    public void setProizvodi(String proizvodi) {
         this.proizvodi = proizvodi;
     }
 

@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller;
+package com.example.onlineaplication.controller.login;
 
 import com.example.onlineaplication.sesija.Smjernice;
 import jakarta.servlet.*;
@@ -7,22 +7,26 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "LoginDispetcherServlet", urlPatterns = {"/login"})
-public class LoginDispetcherServlet extends HttpServlet {
+@WebServlet(name = "LogoutDispatcherServlet", value = "/logout")
+public class LogoutDispatcherServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(Smjernice.AUTHENTICATION);
-        requestDispatcher.forward(request, response);
+
+        response.setHeader("Cache-Control", "no-cache, no-store");
+        response.setHeader("Pragma", "no-cache");
+        request.getSession().invalidate();
+        RequestDispatcher req = request.getRequestDispatcher(Smjernice.AUTHENTICATION);
+        req.forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            processRequest(request, response);
+        processRequest(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            processRequest(request, response);
+        processRequest(request, response);
     }
 }

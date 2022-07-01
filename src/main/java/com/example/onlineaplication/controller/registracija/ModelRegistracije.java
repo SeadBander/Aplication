@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller;
+package com.example.onlineaplication.controller.registracija;
 
 import lombok.Builder;
 import lombok.Data;

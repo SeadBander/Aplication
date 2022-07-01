@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller;
+package com.example.onlineaplication.pocetnaStranica;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;

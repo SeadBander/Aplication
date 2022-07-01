@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller;
+package com.example.onlineaplication.controller.registracija;
 
 import com.example.onlineaplication.ejb.klijenti.Klijenti;
 import com.example.onlineaplication.ejb.klijenti.KlijentiServiceLocal;

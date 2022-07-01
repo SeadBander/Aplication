@@ -1,0 +1,27 @@
+html,
+body,
+.intro {
+    height: 100%;
+}
+@media  {
+    html,
+    body,
+    .intro {
+        height: 1750px;
+    }
+}
+@media {
+    html,
+    body,
+    .intro {
+        height: 1750px;
+    }
+}
+.mask-custom {
+    backdrop-filter: blur(15px);
+    background-color: black;
+    border-radius: 3em;
+    border: 2px solid rgba(255,255,255,.1);
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}

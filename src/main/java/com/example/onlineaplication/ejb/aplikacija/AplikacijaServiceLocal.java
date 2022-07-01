@@ -14,4 +14,5 @@ public interface AplikacijaServiceLocal {
     Aplikacija find(Object id);
     List<Aplikacija> findAll();
 
+    void pogresniPodaci();
 }

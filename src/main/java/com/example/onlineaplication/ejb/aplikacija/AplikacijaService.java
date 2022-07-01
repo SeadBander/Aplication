@@ -1,6 +1,6 @@
 package com.example.onlineaplication.ejb.aplikacija;
 
-import com.example.onlineaplication.controller.AbstractService;
+import com.example.onlineaplication.pocetnaStranica.AbstractService;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -20,4 +20,8 @@ public class AplikacijaService extends AbstractService<Aplikacija> implements Ap
         return entityManager;
     }
 
+    @Override
+    public void pogresniPodaci() {
+        entityManager.getEntityManagerFactory().getCache().evictAll();
+    }
 }

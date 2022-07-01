@@ -1,8 +1,7 @@
 package com.example.onlineaplication.ejb.klijenti;
 
-import com.example.onlineaplication.controller.ModelPrijave;
-import com.example.onlineaplication.controller.ModelRegistracije;
-import com.example.onlineaplication.ejb.klijenti.Klijenti;
+import com.example.onlineaplication.controller.login.ModelPrijave;
+import com.example.onlineaplication.controller.registracija.ModelRegistracije;
 import jakarta.ejb.Local;
 
 import java.util.List;
