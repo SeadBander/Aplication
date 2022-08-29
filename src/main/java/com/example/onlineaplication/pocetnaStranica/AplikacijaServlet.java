@@ -1,9 +1,7 @@
 package com.example.onlineaplication.pocetnaStranica;
 
-import com.example.onlineaplication.ejb.aplikacija.Aplikacija;
-import com.example.onlineaplication.ejb.aplikacija.AplikacijaServiceLocal;
-import com.example.onlineaplication.sesija.KlijentiSesija;
-import com.example.onlineaplication.sesija.Smjernice;
+import com.example.onlineaplication.ejb.user.service.UserServiceLocal;
+import com.example.onlineaplication.paths.Paths;
 import jakarta.inject.Inject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -19,16 +17,15 @@ import java.util.List;
 public class AplikacijaServlet extends HttpServlet {
 
     @Inject
-    private AplikacijaServiceLocal aplikacijaServiceLocal;
+    private UserServiceLocal userServiceLocal;
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-            aplikacijaServiceLocal.pogresniPodaci();
-            List<Aplikacija> aplikacije = aplikacijaServiceLocal.findAll();
-            request.setAttribute("aplikacije", aplikacije);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Smjernice.APLIKACIJA);
+
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.APLICATION);
             requestDispatcher.include(request, response);
 
     }
