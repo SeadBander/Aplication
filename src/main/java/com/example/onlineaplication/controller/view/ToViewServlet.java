@@ -28,7 +28,7 @@ public class ToViewServlet extends HttpServlet {
 
             String privilegeName = Session.USERS.getFromSession(request).getPrivilegeId().getName();
 
-            if (privilegeName.equalsIgnoreCase("1")) {
+            if (privilegeName.equalsIgnoreCase("admin")) {
                 RequestDispatcher toView = request.getRequestDispatcher(Paths.ADMINVIEW);
                 toView.forward(request, response);
             } else {

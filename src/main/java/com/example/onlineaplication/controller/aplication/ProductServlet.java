@@ -1,4 +1,4 @@
-package com.example.onlineaplication.ejb.product.controller;
+package com.example.onlineaplication.controller.aplication;
 
 import com.example.onlineaplication.ejb.product.Products;
 import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
@@ -11,8 +11,8 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProductAplicationServlet", value = "/ProductAplicationServlet")
-public class ProductAplicationServlet extends HttpServlet {
+@WebServlet(name = "ProductServlet", value = "/ProductServlet")
+public class ProductServlet extends HttpServlet {
 
     @Inject
     private ProductServiceLocal productServiceLocal;

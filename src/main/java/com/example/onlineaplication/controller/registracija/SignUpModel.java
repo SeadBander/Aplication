@@ -27,9 +27,12 @@ public class SignUpModel {
 
 
     public Integer getTownId() {
-
+        if (town.contains("[")) {
+            String townIdText = town.substring(town.indexOf("[") + 1, town.indexOf("]"));
+            return Integer.parseInt(townIdText);
+        } else {
             return Integer.parseInt(town);
-
+        }
     }
 
     public String getName() {

@@ -12,6 +12,9 @@
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
 </head>
 <body>
+<%
+    List<Town> towns = (List<Town>) request.getAttribute("towns");
+%>
 <div style="padding:20px">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Registration Form</h3>
     <form action="SignUpDispatcherServlet" method="post" style="border:1px solid #ccc; padding: 20px;">
@@ -57,22 +60,12 @@
         </div>
         <div class="col-md-4">
             <div class="form-outline">
-                <%
-                    List<Town> towns = (List<Town>) request.getAttribute("towns");
-                %>
-                <div class="input-group mb-3" style="margin-top: 10px">
-                    <label class="input-group-text">Town:</label>
-                    <select name="towns" class="form-select w-50" >
-                        <option  selected>Choose...</option>
-                        <%
-                            for(Town town : towns){
-                        %>
-                        <option  value=<%=town != null? town.getId():""%>>
-                                         <%=town != null? town.getName():""%>
-                                         </option>
-                                <%}%>
-                    </select>
-                </div>
+                <label class="input-group-text">Town:</label>
+                    <select class="form-control" required="true" name="town" id="r8">
+                        <%  for (Town town : towns) {
+                        %><option><%=town%></option>
+                        <%}%>
+                    </select><br/><br/>
             </div>
         </div>
 

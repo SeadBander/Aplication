@@ -21,7 +21,7 @@ public class SignUpDispatcherServlet extends HttpServlet {
     private TownServiceLocal townServiceLocal;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NumberFormatException {
 
         List<Town> towns = townServiceLocal.findAll();
         request.setAttribute("towns", towns);

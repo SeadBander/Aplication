@@ -18,6 +18,7 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Privilege</th>
+      <th scope="col">JMBG</th>
     </tr>
     </thead>
     <%
@@ -32,6 +33,7 @@
       <td><%=user.getUsername()%></td>
       <td><%=user.getEmail()%></td>
       <td><%=user.getPrivilegeId().getName()%></td>
+      <td><%=user.getJmbg()%></td>
     </tr>
     <%}%>
     </tbody>
@@ -67,6 +69,12 @@
       <label  class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-2">
         <input name="email" type="text" class="form-control" value="<%=user != null?user.getEmail():""%>" >
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label  class="col-sm-2 col-form-label">JMBG</label>
+      <div class="col-sm-2">
+        <input name="jmbg" type="text" class="form-control" value="<%=user != null?user.getJmbg():""%>" >
       </div>
     </div>
     <fieldset class="row mb-3">

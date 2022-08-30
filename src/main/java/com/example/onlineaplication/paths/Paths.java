@@ -3,7 +3,7 @@ package com.example.onlineaplication.paths;
 public interface Paths {
     
     public static final String HOME = "/dashboard/index.jsp";
-    public static final String APLICATION = "/dashboard/aplikacija.jsp";
+    public static final String APLICATION = "/dashboard/adminaplikacija.jsp";
     public static final String LOGIN = "/login/login.jsp";
     public static final String TOVIEW = "/ToViewServlet";
     public static final String TOLOGIN = "/ToLogInServlet";
