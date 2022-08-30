@@ -20,7 +20,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Products.findByAmount", query = "SELECT p FROM Products p WHERE p.amount = :amount")})
 public class Products implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)

@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller.view;
+package com.example.onlineaplication.controller.aplication;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;

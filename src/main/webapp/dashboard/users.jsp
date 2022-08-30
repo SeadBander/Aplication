@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Online Aplikacija - user</title>
+  <title>Online Aplikacija - admin</title>
 </head>
 <body>
 
