@@ -62,8 +62,12 @@
             <div class="form-outline">
                 <label class="input-group-text">Town:</label>
                     <select class="form-control" required="true" name="town" id="r8">
-                        <%  for (Town town : towns) {
-                        %><option><%=town%></option>
+                        <%
+                            for (Town town : towns) {
+                        %>
+                        <option value=<%=town.getId()%>>
+                            <%=town.getName()%>
+                        </option>
                         <%}%>
                     </select><br/><br/>
             </div>
