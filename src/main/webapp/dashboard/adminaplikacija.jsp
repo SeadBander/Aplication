@@ -36,8 +36,6 @@
         </tbody>
     </table>
 </div>
-<p style="color: red; text-align: center"><%=request.getAttribute("message")==null?"":request.getAttribute("message")%></p>
-
 
 <div style="margin: 20px">
 
@@ -49,7 +47,7 @@
 </div>
 
 <%
-    Products products = (Products) request.getAttribute("findProduct");
+    Products products = (Products) request.getAttribute("findedProduct");
 %>
 <div style="margin: 20px">
     <form class="p-3 bg-light" method="post" action="">

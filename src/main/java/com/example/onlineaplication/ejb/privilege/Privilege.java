@@ -18,7 +18,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Privilege.findByName", query = "SELECT p FROM Privilege p WHERE p.name = :name")})
 public class Privilege implements Serializable {
 
-    public static final Integer USER_PRIVILEGE = 2;
+    public static final Integer USER_PRIVILEGE = 1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

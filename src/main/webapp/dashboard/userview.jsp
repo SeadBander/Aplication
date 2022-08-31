@@ -13,5 +13,5 @@
 <body>
 <jsp:include page="usernav.jsp"></jsp:include>
 
-<img src=${pageContext.request.contextPath}/css/slika1.jpg class="img-fluid" alt="..." style="margin-bottom: 10px"></body>
+<img src=${pageContext.request.contextPath}/css/slika2.jpg class="img-fluid" alt="..." style="margin-bottom: 10px"></body>
 </html>

@@ -17,7 +17,8 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Products.findAll", query = "SELECT p FROM Products p"),
         @NamedQuery(name = "Products.findById", query = "SELECT p FROM Products p WHERE p.id = :id"),
         @NamedQuery(name = "Products.findByProductName", query = "SELECT p FROM Products p WHERE p.productName = :productName"),
-        @NamedQuery(name = "Products.findByAmount", query = "SELECT p FROM Products p WHERE p.amount = :amount")})
+        @NamedQuery(name = "Products.findByAmount", query = "SELECT p FROM Products p WHERE p.amount = :amount"),
+        @NamedQuery(name = "Products.findByUserId", query = "SELECT p FROM Products p WHERE p.applicant = :applicant")})
 public class Products implements Serializable {
 
 

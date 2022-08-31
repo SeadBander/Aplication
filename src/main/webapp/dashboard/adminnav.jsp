@@ -23,7 +23,7 @@
           <a class="nav-link" href="${pageContext.request.contextPath}/UserServlet">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#products">Products</a>
+          <a class="nav-link" href="${pageContext.request.contextPath}/ProductServlet">Products</a>
         </li>
 
       </ul>
