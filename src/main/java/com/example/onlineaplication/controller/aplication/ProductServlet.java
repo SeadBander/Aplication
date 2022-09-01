@@ -45,9 +45,6 @@ public class ProductServlet extends HttpServlet {
             Users userInSession = Session.USERS.getFromSession(request);
             List<Products> productsList = (List<Products>) productServiceLocal.findByUserId(userInSession);
             request.setAttribute("productlist", productsList);
-            Products products = productServiceLocal.find(request.getParameter("findnote"));
-            request.setAttribute("findedproduct", products);
-
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.USERPRODUCT);
             toView.forward(request, response);
