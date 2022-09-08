@@ -17,4 +17,5 @@ public interface Paths {
     public static final String USERS ="/dashboard/users.jsp";
     public static final String USERSERVLET = "/UserServlet";
 
+    public static final String PRODUCTSERVLET = "/ProductServlet";
 }

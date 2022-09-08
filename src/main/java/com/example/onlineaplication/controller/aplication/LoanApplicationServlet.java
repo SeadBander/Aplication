@@ -1,6 +1,8 @@
 package com.example.onlineaplication.controller.aplication;
 
-import com.example.onlineaplication.ejb.product.Products;
+import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
+import com.example.onlineaplication.ejb.loanApplication.service.LoanApplicationServiceLocal;
+import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
 import com.example.onlineaplication.ejb.user.Users;
 import com.example.onlineaplication.paths.Paths;
@@ -13,11 +15,12 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ProductServlet", value = "/ProductServlet")
-public class ProductServlet extends HttpServlet {
+@WebServlet(name = "LoanApplicationServlet", value = "/LoanApplicationServlet")
+public class LoanApplicationServlet extends HttpServlet {
 
     @Inject
-    private ProductServiceLocal productServiceLocal;
+    private LoanApplicationServiceLocal loanApplicationServiceLocal;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -25,17 +28,17 @@ public class ProductServlet extends HttpServlet {
 
         if (privilegeName.equalsIgnoreCase("admin")) {
 
-            List<Products> allProducts = productServiceLocal.findAll();
+            List<LoanApplication> allProducts = loanApplicationServiceLocal.findAll();
             request.setAttribute("productlist", allProducts);
 
             if (request.getParameter("findproduct") == null) {
 
-                Products products = productServiceLocal.find(1);
-                request.setAttribute("findedproduct", products);
+                LoanApplication product = loanApplicationServiceLocal.find(1);
+                request.setAttribute("findedproduct", product);
             } else {
                 Integer productId = Integer.parseInt(request.getParameter("findproduct"));
-                Products products = productServiceLocal.find(productId);
-                request.setAttribute("findedproduct", products);
+                LoanApplication product = loanApplicationServiceLocal.find(productId);
+                request.setAttribute("findedproduct", product);
             }
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.ADMINPRODUCT);
@@ -43,8 +46,8 @@ public class ProductServlet extends HttpServlet {
         } else {
 
             Users userInSession = Session.USERS.getFromSession(request);
-            List<Products> productsList = (List<Products>) productServiceLocal.findByUserId(userInSession);
-            request.setAttribute("productlist", productsList);
+            List<LoanApplication> productList = (List<LoanApplication>) loanApplicationServiceLocal.findByUserId(userInSession);
+            request.setAttribute("productlist", productList);
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.USERPRODUCT);
             toView.forward(request, response);

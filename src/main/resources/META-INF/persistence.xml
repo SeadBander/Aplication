@@ -7,7 +7,7 @@
         <jta-data-source>jdbc/aplication</jta-data-source>
         <class>com.example.onlineaplication.ejb.user.Users</class>
         <class>com.example.onlineaplication.ejb.country.Country</class>
-        <class>com.example.onlineaplication.ejb.product.Products</class>
+        <class>com.example.onlineaplication.ejb.product.Product</class>
         <class>com.example.onlineaplication.ejb.town.Town</class>
         <class>com.example.onlineaplication.ejb.loanApplication.LoanApplication</class>
         <class>com.example.onlineaplication.ejb.privilege.Privilege</class>

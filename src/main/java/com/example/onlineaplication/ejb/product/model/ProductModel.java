@@ -9,7 +9,6 @@ import lombok.Data;
 public class ProductModel {
 
     private String productName;
-    private Integer amount;
-    private Users applicant;
+
 
 }

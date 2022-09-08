@@ -1,7 +1,7 @@
 package com.example.onlineaplication.ejb.user;
 
+import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import com.example.onlineaplication.ejb.privilege.Privilege;
-import com.example.onlineaplication.ejb.product.Products;
 import com.example.onlineaplication.ejb.town.Town;
 
 import java.io.Serializable;
@@ -20,6 +20,7 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
         @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")})
 public class Users implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,16 +45,14 @@ public class Users implements Serializable {
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
-    @ManyToMany(mappedBy = "usersList")
-    private List<Products> productsList;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    private List<LoanApplication> loanApplicationList;
     @JoinColumn(name = "privilege_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Privilege privilegeId;
     @JoinColumn(name = "town_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Town townId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "applicant")
-    private List<Products> productsList1;
 
     public Users() {
     }
@@ -128,12 +127,12 @@ public class Users implements Serializable {
         this.password = password;
     }
 
-    public List<Products> getProductsList() {
-        return productsList;
+    public List<LoanApplication> getLoanApplicationList() {
+        return loanApplicationList;
     }
 
-    public void setProductsList(List<Products> productsList) {
-        this.productsList = productsList;
+    public void setLoanApplicationList(List<LoanApplication> loanApplicationList) {
+        this.loanApplicationList = loanApplicationList;
     }
 
     public Privilege getPrivilegeId() {
@@ -150,14 +149,6 @@ public class Users implements Serializable {
 
     public void setTownId(Town townId) {
         this.townId = townId;
-    }
-
-    public List<Products> getProductsList1() {
-        return productsList1;
-    }
-
-    public void setProductsList1(List<Products> productsList1) {
-        this.productsList1 = productsList1;
     }
 
     @Override

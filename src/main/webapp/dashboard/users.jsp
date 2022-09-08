@@ -83,13 +83,13 @@
 
       <div class="col-sm-2">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="privilegeradio"  value="2" checked>
+          <input class="form-check-input" type="radio" name="privilegeradio"  value="2">
           <label class="form-check-label" > User </label>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="privilegeradio"  value="1" >
+          <input class="form-check-input" type="radio" name="privilegeradio"  value="1" checked>
           <label class="form-check-label" > Admin </label>
         </div>
       </div>

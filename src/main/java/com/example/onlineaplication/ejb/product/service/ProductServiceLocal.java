@@ -1,7 +1,6 @@
 package com.example.onlineaplication.ejb.product.service;
 
-import com.example.onlineaplication.ejb.product.Products;
-import com.example.onlineaplication.ejb.user.Users;
+import com.example.onlineaplication.ejb.product.Product;
 import jakarta.ejb.Local;
 
 import java.util.List;
@@ -9,17 +8,15 @@ import java.util.List;
 @Local
 public interface ProductServiceLocal {
 
-    void create(Products products);
+    void create(Product product);
 
-    void edit(Products products);
+    void edit(Product product);
 
-    void remove(Products products);
+    void remove(Product product);
 
-    Products find(Object id);
+    Product find(Object id);
 
-    List<Products> findAll();
-
-    List<Products> findByUserId(Users user);
+    List<Product> findAll();
 
     void invalidateCache();
 }

@@ -1,17 +1,12 @@
 package com.example.onlineaplication.ejb.product.service;
 
 import com.example.onlineaplication.AbstractService;
-import com.example.onlineaplication.ejb.product.Products;
-import com.example.onlineaplication.ejb.user.Users;
+import com.example.onlineaplication.ejb.product.Product;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.*;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 @Stateless
-public class ProductService extends AbstractService<Products> implements ProductServiceLocal {
+public class ProductService extends AbstractService<Product> implements ProductServiceLocal {
 
     @PersistenceContext(unitName = "aplicationPU")
     private EntityManager entityManager;
@@ -22,7 +17,7 @@ public class ProductService extends AbstractService<Products> implements Product
     }
 
     public ProductService() {
-        super(Products.class);
+        super(Product.class);
     }
 
     @Override
@@ -30,14 +25,4 @@ public class ProductService extends AbstractService<Products> implements Product
         entityManager.getEntityManagerFactory().getCache().evictAll();
     }
 
-
-    @Override
-    public List<Products> findByUserId(Users user) {
-        List<Products> products = null;
-            Query query = entityManager.createNamedQuery("Products.findByUserId")
-                    .setParameter("applicant", user);
-            products = (List<Products>) query.getResultList();
-            return products;
-
-    }
 }

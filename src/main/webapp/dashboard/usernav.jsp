@@ -19,7 +19,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/ProductServlet">Products</a>
+                    <a class="nav-link" href="${pageContext.request.contextPath}/LoanApplicationServlet">Aplication</a>
                 </li>
 
             </ul>
@@ -27,6 +27,7 @@
                 <li class="nav-link">
                     <a href="${pageContext.request.contextPath}/LogoutDispatcherServlet" style="margin-right: 20px">Logout</a>
                 </li>
+
             </ul>
             </span>
 
