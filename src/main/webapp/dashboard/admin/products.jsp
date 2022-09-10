@@ -21,7 +21,6 @@
         </thead>
         <%
             List<Product> products = (List<Product>) request.getAttribute("productlist");
-
             for(Product product : products){
         %>
         <tbody>

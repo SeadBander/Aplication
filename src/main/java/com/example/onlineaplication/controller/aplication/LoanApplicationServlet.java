@@ -21,6 +21,9 @@ public class LoanApplicationServlet extends HttpServlet {
     @Inject
     private LoanApplicationServiceLocal loanApplicationServiceLocal;
 
+    @Inject
+    private ProductServiceLocal productServiceLocal;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -28,18 +31,9 @@ public class LoanApplicationServlet extends HttpServlet {
 
         if (privilegeName.equalsIgnoreCase("admin")) {
 
-            List<LoanApplication> allProducts = loanApplicationServiceLocal.findAll();
+            List<Product> allProducts = productServiceLocal.findAll();
             request.setAttribute("productlist", allProducts);
 
-            if (request.getParameter("findproduct") == null) {
-
-                LoanApplication product = loanApplicationServiceLocal.find(1);
-                request.setAttribute("findedproduct", product);
-            } else {
-                Integer productId = Integer.parseInt(request.getParameter("findproduct"));
-                LoanApplication product = loanApplicationServiceLocal.find(productId);
-                request.setAttribute("findedproduct", product);
-            }
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.ADMINPRODUCT);
             toView.forward(request, response);

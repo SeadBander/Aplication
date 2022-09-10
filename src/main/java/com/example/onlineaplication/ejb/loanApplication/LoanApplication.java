@@ -12,10 +12,10 @@ import java.io.Serializable;
         @NamedQuery(name = "LoanApplication.findAll", query = "SELECT l FROM LoanApplication l"),
         @NamedQuery(name = "LoanApplication.findById", query = "SELECT l FROM LoanApplication l WHERE l.id = :id"),
         @NamedQuery(name = "LoanApplication.findByAmount", query = "SELECT l FROM LoanApplication l WHERE l.amount = :amount"),
+        @NamedQuery(name = "LoanApplication.findByProductId", query = "SELECT l FROM LoanApplication l WHERE l.productId = :productId"),
         @NamedQuery(name = "LoanApplication.findByUserId", query = "SELECT l FROM LoanApplication l WHERE l.userId = :userId")})
 public class LoanApplication extends Product implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "id")
@@ -26,7 +26,7 @@ public class LoanApplication extends Product implements Serializable {
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Product productId;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_id", referencedColumnName = "userId")
     @ManyToOne(optional = false)
     private Users userId;
 

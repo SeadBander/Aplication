@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
-        @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = :id"),
+        @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.userId = :userId"),
         @NamedQuery(name = "Users.findByName", query = "SELECT u FROM Users u WHERE u.name = :name"),
         @NamedQuery(name = "Users.findBySurname", query = "SELECT u FROM Users u WHERE u.surname = :surname"),
         @NamedQuery(name = "Users.findByJmbg", query = "SELECT u FROM Users u WHERE u.jmbg = :jmbg"),
@@ -25,8 +25,8 @@ public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
+    @Column(name = "userId")
+    private Integer userId;
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
@@ -57,12 +57,12 @@ public class Users implements Serializable {
     public Users() {
     }
 
-    public Users(Integer id) {
-        this.id = id;
+    public Users(Integer userId) {
+        this.userId = userId;
     }
 
-    public Users(Integer id, String name, String surname, String jmbg, String email, String username, String password) {
-        this.id = id;
+    public Users(Integer userId, String name, String surname, String jmbg, String email, String username, String password) {
+        this.userId = userId;
         this.name = name;
         this.surname = surname;
         this.jmbg = jmbg;
@@ -72,11 +72,11 @@ public class Users implements Serializable {
     }
 
     public Integer getId() {
-        return id;
+        return userId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -154,7 +154,7 @@ public class Users implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (userId != null ? userId.hashCode() : 0);
         return hash;
     }
 
@@ -165,7 +165,7 @@ public class Users implements Serializable {
             return false;
         }
         Users other = (Users) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.userId == null && other.userId != null) || (this.userId != null && !this.userId.equals(other.userId))) {
             return false;
         }
         return true;
