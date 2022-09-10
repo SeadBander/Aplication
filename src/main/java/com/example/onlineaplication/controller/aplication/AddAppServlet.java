@@ -3,7 +3,6 @@ package com.example.onlineaplication.controller.aplication;
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import com.example.onlineaplication.ejb.loanApplication.service.LoanApplicationServiceLocal;
 import com.example.onlineaplication.ejb.product.Product;
-import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
 import com.example.onlineaplication.ejb.user.Users;
 import com.example.onlineaplication.paths.Paths;
 import com.example.onlineaplication.sesija.Session;
@@ -16,8 +15,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "AddProductServlet", value = "/AddProductServlet")
-public class AddProductServlet extends HttpServlet {
+@WebServlet(name = "AddAppServlet", value = "/AddAppServlet")
+public class AddAppServlet extends HttpServlet {
 
     @Inject
     private LoanApplicationServiceLocal loanApplicationServiceLocal;
@@ -33,7 +32,7 @@ public class AddProductServlet extends HttpServlet {
             productToAdd.setAmount(request.getParameter("amount"));
             loanApplicationServiceLocal.create(productToAdd);
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.PRODUCTSERVLET);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.LOANAPPLICATIONSERVLET);
             requestDispatcher.forward(request,response);
 
         }catch (ServletException | IOException e){

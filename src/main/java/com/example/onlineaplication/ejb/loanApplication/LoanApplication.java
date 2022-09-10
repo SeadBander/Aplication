@@ -13,7 +13,7 @@ import java.io.Serializable;
         @NamedQuery(name = "LoanApplication.findById", query = "SELECT l FROM LoanApplication l WHERE l.id = :id"),
         @NamedQuery(name = "LoanApplication.findByAmount", query = "SELECT l FROM LoanApplication l WHERE l.amount = :amount"),
         @NamedQuery(name = "LoanApplication.findByUserId", query = "SELECT l FROM LoanApplication l WHERE l.userId = :userId")})
-public class LoanApplication implements Serializable {
+public class LoanApplication extends Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id

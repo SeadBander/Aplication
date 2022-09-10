@@ -26,7 +26,7 @@ public class Product implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "product_name")
+    @Column(name = "productname")
     private String productName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId")
     private List<LoanApplication> loanApplicationList;

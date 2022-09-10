@@ -27,7 +27,6 @@
                 <li class="nav-link">
                     <a href="${pageContext.request.contextPath}/LogoutDispatcherServlet" style="margin-right: 20px">Logout</a>
                 </li>
-
             </ul>
             </span>
 

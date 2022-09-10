@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
         <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
             <div class="row gx-lg-5 align-items-center mb-5">
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        Dobrodosli na Bank Online Application platformu
+                        Dobrodosli na Bank Online Application
                     </h1>
                     <h2 class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
                         Ovdje mozete aplicirati online za bankarski proizvod prema Vasim potrebama

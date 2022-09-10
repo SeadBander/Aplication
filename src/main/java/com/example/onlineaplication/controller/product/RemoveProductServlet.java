@@ -1,0 +1,43 @@
+package com.example.onlineaplication.controller.product;
+
+import com.example.onlineaplication.ejb.product.Product;
+import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
+import com.example.onlineaplication.ejb.user.Users;
+import com.example.onlineaplication.ejb.user.service.UserServiceLocal;
+import com.example.onlineaplication.paths.Paths;
+import jakarta.inject.Inject;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
+import java.io.IOException;
+
+@WebServlet(name = "RemoveProductServlet", value = "/RemoveProductServlet")
+public class RemoveProductServlet extends HttpServlet {
+    @Inject
+    private ProductServiceLocal productServiceLocal;
+
+    private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Integer productId = Integer.parseInt(request.getParameter("productid"));
+
+        Product removeProduct = productServiceLocal.find(productId);
+        productServiceLocal.remove(removeProduct);
+
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.PRODUCTSERVLET);
+        requestDispatcher.forward(request, response);
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request,response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request,response);
+    }
+}
+

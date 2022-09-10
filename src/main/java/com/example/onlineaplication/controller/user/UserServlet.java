@@ -1,4 +1,4 @@
-package com.example.onlineaplication.controller.view;
+package com.example.onlineaplication.controller.user;
 
 import com.example.onlineaplication.ejb.user.Users;
 import com.example.onlineaplication.ejb.user.service.UserServiceLocal;

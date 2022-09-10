@@ -47,6 +47,11 @@ public class SignUpDispatcherServlet extends HttpServlet {
                 if (user != null) {
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.TOLOGIN);
                     requestDispatcher.include(request, response);
+                    if (user != null) {
+                        request.setAttribute("status", "success");
+                    }else {
+                        request.setAttribute("status", "failed");
+                    }
                 } else {
                     RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.SIGNUP);
                     requestDispatcher.include(request, response);

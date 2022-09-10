@@ -2,8 +2,6 @@ package com.example.onlineaplication.controller.aplication;
 
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import com.example.onlineaplication.ejb.loanApplication.service.LoanApplicationServiceLocal;
-import com.example.onlineaplication.ejb.product.Product;
-import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
 import com.example.onlineaplication.paths.Paths;
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
@@ -14,8 +12,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "RemoveProductServlet", value = "/RemoveProductServlet")
-public class   RemoveProductServlet extends HttpServlet {
+@WebServlet(name = "RemoveAppServlet", value = "/RemoveAppServlet")
+public class RemoveAppServlet extends HttpServlet {
 
     @Inject
     private LoanApplicationServiceLocal loanApplicationServiceLocal;
@@ -23,13 +21,13 @@ public class   RemoveProductServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request,HttpServletResponse response){
 
-        Integer productId = Integer.parseInt(request.getParameter("productid"));
+        Integer id = Integer.parseInt(request.getParameter("id"));
 
         try{
-            LoanApplication removeProduct = loanApplicationServiceLocal.find(productId);
-            loanApplicationServiceLocal.remove(removeProduct);
+            LoanApplication removeApp = loanApplicationServiceLocal.find(id);
+            loanApplicationServiceLocal.remove(removeApp);
 
-            RequestDispatcher toView = request.getRequestDispatcher(Paths.PRODUCTSERVLET);
+            RequestDispatcher toView = request.getRequestDispatcher(Paths.LOANAPPLICATIONSERVLET);
             toView.forward(request,response);
 
         }catch (ServletException | IOException e){

@@ -23,6 +23,9 @@
           <a class="nav-link" href="${pageContext.request.contextPath}/UserServlet">Users</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="${pageContext.request.contextPath}/ProductServlet">Products</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="${pageContext.request.contextPath}/LoanApplicationServlet">Aplication</a>
         </li>
 
@@ -31,7 +34,6 @@
         <li class="nav-link">
           <a href="${pageContext.request.contextPath}/LogoutDispatcherServlet" style="margin-right: 20px">Logout</a>
         </li>
-
       </ul>
     </div>
   </div>

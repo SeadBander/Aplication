@@ -45,7 +45,7 @@
                                     Login
                                 </button>
                             </form>
-                            <p class="paragraph" > Zelis se <a class="paragraph" href="${pageContext.request.contextPath}/ToSignUpServlet">registrovati?</a></p>
+                            <p class="paragraph" > Zelis se <a class="paragraph" href="${pageContext.request.contextPath}/ToSignUpServlet">Registrovati?</a></p>
                             <p class="paragraph"> Nazad na <a class="paragraph" href="${pageContext.request.contextPath}/HomeDispatcherServlet">Home</a></p>
                         </div>
                     </div>

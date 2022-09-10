@@ -16,7 +16,7 @@
     List<Town> towns = (List<Town>) request.getAttribute("towns");
 %>
 <div style="padding:20px">
-    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Registration Form</h3>
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Registration</h3>
     <form action="SignUpDispatcherServlet" method="post" style="border:1px solid #ccc; padding: 20px;">
 
         <div class="col-md-4">
@@ -78,7 +78,7 @@
             <button type="submit" class="btn btn-light btn-block mb-4" style="color: blue">Registuj se</button>
         </div>
 
-        <p class="paragraph" >Vec si <a class="paragraph" href="${pageContext.request.contextPath}/ToLogInServlet">registrovan?</a></p>
+        <p class="paragraph" >Vec ste registrovani? Idi na <a class="paragraph" href="${pageContext.request.contextPath}/ToLogInServlet">Login page</a></p>
         <p class="paragraph"> Nazad na <a class="paragraph" href="${pageContext.request.contextPath}/HomeDispatcherServlet">Home</a></p>
 
     </form>
