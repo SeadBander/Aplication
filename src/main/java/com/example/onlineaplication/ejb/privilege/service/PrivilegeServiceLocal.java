@@ -2,7 +2,6 @@ package com.example.onlineaplication.ejb.privilege.service;
 
 import com.example.onlineaplication.ejb.privilege.Privilege;
 import jakarta.ejb.Local;
-
 import java.util.List;
 
 @Local

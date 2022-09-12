@@ -1,16 +1,10 @@
 package com.example.onlineaplication.ejb.country;
 
-
 import com.example.onlineaplication.ejb.town.Town;
-
 import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
 
-/**
- *
- * @author SEJO
- */
 @Entity
 @Table(name = "country")
 @NamedQueries({
@@ -75,7 +69,6 @@ public class Country implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Country)) {
             return false;
         }

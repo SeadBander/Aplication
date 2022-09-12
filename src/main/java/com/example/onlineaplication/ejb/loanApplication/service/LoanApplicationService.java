@@ -2,11 +2,11 @@ package com.example.onlineaplication.ejb.loanApplication.service;
 
 import com.example.onlineaplication.AbstractService;
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
-import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.user.Users;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

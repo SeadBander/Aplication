@@ -3,7 +3,6 @@ package com.example.onlineaplication.ejb.user;
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import com.example.onlineaplication.ejb.privilege.Privilege;
 import com.example.onlineaplication.ejb.town.Town;
-
 import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
@@ -20,7 +19,6 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"),
         @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")})
 public class Users implements Serializable {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

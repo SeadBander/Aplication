@@ -3,6 +3,7 @@ package com.example.onlineaplication.controller.aplication;
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import com.example.onlineaplication.ejb.loanApplication.service.LoanApplicationServiceLocal;
 import com.example.onlineaplication.ejb.product.Product;
+import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
 import com.example.onlineaplication.ejb.user.Users;
 import com.example.onlineaplication.paths.Paths;
 import com.example.onlineaplication.sesija.Session;
@@ -10,7 +11,6 @@ import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,15 +20,18 @@ public class AddAppServlet extends HttpServlet {
 
     @Inject
     private LoanApplicationServiceLocal loanApplicationServiceLocal;
+    @Inject
+    private ProductServiceLocal productServiceLocal;
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response){
         Users userInSession = Session.USERS.getFromSession(request);
 
-
+        Integer productId = Integer.parseInt(request.getParameter("productid"));
+        Product productToSet = productServiceLocal.find(productId);
        try{
             LoanApplication productToAdd = new LoanApplication();
             productToAdd.setUserId(userInSession);
-            productToAdd.setProductId(new Product());
+            productToAdd.setProductId(productToSet);
             productToAdd.setAmount(request.getParameter("amount"));
             loanApplicationServiceLocal.create(productToAdd);
 

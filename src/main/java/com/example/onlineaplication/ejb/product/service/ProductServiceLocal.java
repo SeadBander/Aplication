@@ -1,7 +1,6 @@
 package com.example.onlineaplication.ejb.product.service;
 
 import com.example.onlineaplication.ejb.product.Product;
-import com.example.onlineaplication.ejb.user.Users;
 import jakarta.ejb.Local;
 
 import java.util.List;

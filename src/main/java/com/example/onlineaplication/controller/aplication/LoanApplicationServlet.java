@@ -31,8 +31,8 @@ public class LoanApplicationServlet extends HttpServlet {
 
         if (privilegeName.equalsIgnoreCase("admin")) {
 
-            List<Product> allProducts = productServiceLocal.findAll();
-            request.setAttribute("productlist", allProducts);
+            List<LoanApplication> allApps = loanApplicationServiceLocal.findAll();
+            request.setAttribute("applist", allApps);
 
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.ADMINPRODUCT);
@@ -40,7 +40,9 @@ public class LoanApplicationServlet extends HttpServlet {
         } else {
 
             Users userInSession = Session.USERS.getFromSession(request);
-            List<LoanApplication> productList = (List<LoanApplication>) loanApplicationServiceLocal.findByUserId(userInSession);
+            List<LoanApplication> appList = loanApplicationServiceLocal.findByUserId(userInSession);
+            request.setAttribute("applist", appList);
+            List<Product> productList = productServiceLocal.findAll();
             request.setAttribute("productlist", productList);
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.USERPRODUCT);

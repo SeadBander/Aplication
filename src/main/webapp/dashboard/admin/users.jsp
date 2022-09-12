@@ -7,9 +7,7 @@
   <title>Online Aplikacija - admin</title>
 </head>
 <body>
-
 <jsp:include page="adminnav.jsp"></jsp:include>
-
 <div  class="table-responsive" style="margin: 30px">
   <table class="table table-hover">
     <thead>
@@ -40,14 +38,12 @@
   </table>
 </div>
 <div style="margin: 20px">
-
   <h4>Find username :</h4>
   <form class="d-flex p-3 bg-light w-50" method="post" action="UserServlet">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="finduser">
     <button class="btn btn-outline-success" type="submit">Search</button>
   </form>
 </div>
-
 <%
   Users user = (Users) request.getAttribute("findeduser");
 %>

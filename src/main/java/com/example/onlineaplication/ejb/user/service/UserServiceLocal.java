@@ -1,11 +1,9 @@
 package com.example.onlineaplication.ejb.user.service;
 
-
 import com.example.onlineaplication.controller.login.LogInModel;
 import com.example.onlineaplication.controller.registracija.SignUpModel;
 import com.example.onlineaplication.ejb.user.Users;
 import jakarta.ejb.Local;
-
 import java.util.List;
 
 @Local

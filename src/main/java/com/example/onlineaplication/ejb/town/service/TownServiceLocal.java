@@ -2,7 +2,6 @@ package com.example.onlineaplication.ejb.town.service;
 
 import com.example.onlineaplication.ejb.town.Town;
 import jakarta.ejb.Local;
-
 import java.util.List;
 
 @Local

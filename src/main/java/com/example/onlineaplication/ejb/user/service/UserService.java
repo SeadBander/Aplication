@@ -1,6 +1,5 @@
 package com.example.onlineaplication.ejb.user.service;
 
-
 import com.example.onlineaplication.AbstractService;
 import com.example.onlineaplication.controller.login.LogInModel;
 import com.example.onlineaplication.controller.registracija.SignUpModel;

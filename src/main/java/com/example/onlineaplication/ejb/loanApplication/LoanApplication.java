@@ -3,7 +3,6 @@ package com.example.onlineaplication.ejb.loanApplication;
 import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.user.Users;
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 
 @Entity
@@ -14,7 +13,7 @@ import java.io.Serializable;
         @NamedQuery(name = "LoanApplication.findByAmount", query = "SELECT l FROM LoanApplication l WHERE l.amount = :amount"),
         @NamedQuery(name = "LoanApplication.findByProductId", query = "SELECT l FROM LoanApplication l WHERE l.productId = :productId"),
         @NamedQuery(name = "LoanApplication.findByUserId", query = "SELECT l FROM LoanApplication l WHERE l.userId = :userId")})
-public class LoanApplication extends Product implements Serializable {
+public class LoanApplication implements Serializable {
 
     @Id
     @Basic(optional = false)
@@ -23,10 +22,10 @@ public class LoanApplication extends Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "amount")
     private String amount;
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @JoinColumn(name = "productId", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Product productId;
-    @JoinColumn(name = "user_id", referencedColumnName = "userId")
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
     @ManyToOne(optional = false)
     private Users userId;
 
@@ -83,7 +82,6 @@ public class LoanApplication extends Product implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof LoanApplication)) {
             return false;
         }

@@ -20,19 +20,19 @@ public class EditAppServlet extends HttpServlet {
     private LoanApplicationServiceLocal loanApplicationServiceLocal;
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) {
-        Integer productId = Integer.parseInt(request.getParameter("productid"));
+        Integer appId = Integer.parseInt(request.getParameter("id"));
 
         try {
-                LoanApplication productToChange = loanApplicationServiceLocal.find(productId);
-                productToChange.setProductName(request.getParameter("productname"));
-                productToChange.setAmount(request.getParameter("amount"));
-                loanApplicationServiceLocal.edit(productToChange);
+                LoanApplication appToChange = loanApplicationServiceLocal.find(appId);
+
+                appToChange.setAmount(request.getParameter("amount"));
+                loanApplicationServiceLocal.edit(appToChange);
 
             RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.LOANAPPLICATIONSERVLET);
             requestDispatcher.forward(request, response);
 
         } catch (ServletException | IOException e) {
-            Logger.getLogger("EDIT PRODUCT SERVLET").log(Level.INFO, e.getMessage());
+            Logger.getLogger("EDIT REQUEST SERVLET").log(Level.INFO, e.getMessage());
 
         }
     }

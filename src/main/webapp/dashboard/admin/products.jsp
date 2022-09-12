@@ -7,9 +7,7 @@
     <title>Online Aplikacija - admin</title>
 </head>
 <body>
-
 <jsp:include page="adminnav.jsp"></jsp:include>
-
 <div  class="table-responsive" style="margin: 30px">
     <table class="table table-hover">
         <thead>
@@ -42,7 +40,6 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 </div>
-
 <%
     Product product = (Product) request.getAttribute("findedproduct");
 %>
@@ -62,9 +59,7 @@
         </div>
 
         <fieldset class="row mb-3">
-
             <legend class="col-form-label col-sm-2 pt-0">Privilege</legend>
-
             <div class="col-sm-2">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="privilegeradio"  value="2">

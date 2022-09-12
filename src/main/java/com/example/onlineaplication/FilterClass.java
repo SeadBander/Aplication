@@ -6,11 +6,9 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
-
-@WebFilter( urlPatterns = { "/jsp/*", "/UserServlet", "/ProductServlet" })
+@WebFilter( urlPatterns = { "/jsp/*" })
 public class FilterClass implements Filter {
 
     private ServletContext context;

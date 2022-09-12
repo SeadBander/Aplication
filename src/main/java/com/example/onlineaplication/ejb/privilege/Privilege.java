@@ -1,15 +1,11 @@
 package com.example.onlineaplication.ejb.privilege;
 
 import com.example.onlineaplication.ejb.user.Users;
-
 import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
 
-/**
- *
- * @author SEJO
- */
+
 @Entity
 @Table(name = "privilege")
 @NamedQueries({
@@ -76,7 +72,6 @@ public class Privilege implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Privilege)) {
             return false;
         }

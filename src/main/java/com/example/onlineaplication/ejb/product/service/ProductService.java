@@ -4,7 +4,6 @@ import com.example.onlineaplication.AbstractService;
 import com.example.onlineaplication.ejb.product.Product;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.*;
-
 import java.util.logging.Logger;
 
 @Stateless

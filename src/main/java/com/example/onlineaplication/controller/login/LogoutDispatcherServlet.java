@@ -4,7 +4,6 @@ import com.example.onlineaplication.paths.Paths;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-
 import java.io.IOException;
 
 @WebServlet(name = "LogoutDispatcherServlet", value = "/LogoutDispatcherServlet")

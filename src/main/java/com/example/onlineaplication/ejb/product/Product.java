@@ -2,14 +2,9 @@ package com.example.onlineaplication.ejb.product;
 
 import java.io.Serializable;
 import java.util.List;
-
 import com.example.onlineaplication.ejb.loanApplication.LoanApplication;
 import jakarta.persistence.*;
 
-/**
- *
- * @author SEJO
- */
 @Entity
 @Table(name = "products")
 @NamedQueries({
@@ -18,7 +13,6 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Products.findByProductName", query = "SELECT p FROM Product p WHERE p.productName = :productName")})
 
 public class Product implements Serializable {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,7 +70,6 @@ public class Product implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Product)) {
             return false;
         }

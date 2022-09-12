@@ -1,9 +1,7 @@
 package com.example.onlineaplication.ejb.town;
 
-
 import com.example.onlineaplication.ejb.country.Country;
 import com.example.onlineaplication.ejb.user.Users;
-
 import java.io.Serializable;
 import java.util.List;
 import jakarta.persistence.*;
@@ -16,7 +14,6 @@ import jakarta.persistence.*;
         @NamedQuery(name = "Town.findByName", query = "SELECT t FROM Town t WHERE t.name = :name")})
 public class Town implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -26,7 +23,6 @@ public class Town implements Serializable {
     @Column(name = "name")
     private String name;
     @JoinColumns({
-            @JoinColumn(name = "country_id", referencedColumnName = "id"),
             @JoinColumn(name = "country_id", referencedColumnName = "id")})
     @ManyToOne(optional = false)
     private Country country;
@@ -86,7 +82,6 @@ public class Town implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Town)) {
             return false;
         }
