@@ -46,4 +46,19 @@ public class LoanApplicationService extends AbstractService<LoanApplication> imp
         }
         return loanApplications;
     }
+
+    public LoanApplication findByAppId(Integer loanApplication) {
+        LoanApplication loanApplications = null;
+
+        try{
+            Query query = entityManager.createNamedQuery("LoanApplication.findById")
+                    .setParameter("id", loanApplication);
+            loanApplications = (LoanApplication) query.getResultList();
+            return loanApplications;
+
+        }catch (NonUniqueResultException | NoResultException e){
+            Logger.getLogger("APPLICATION BY APPID QUERY").log(Level.INFO,e.getMessage());
+        }
+        return loanApplications;
+    }
 }

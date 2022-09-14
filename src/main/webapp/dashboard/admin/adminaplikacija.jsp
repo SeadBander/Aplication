@@ -12,9 +12,9 @@
         <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">ProductId</th>
+            <th scope="col">Product</th>
             <th scope="col">Amount</th>
-            <th scope="col">UserId</th>
+            <th scope="col">User</th>
 
         </tr>
         </thead>
@@ -24,7 +24,7 @@
         <tbody>
         <tr>
             <td><%=app.getId()%></td>
-            <td><%=app.getProductId().getProductName()%></td>
+            <td><%=app.getProductId()%></td>
             <td><%=app.getAmount()%></td>
             <td><%=app.getUserId()%></td>
 
@@ -35,7 +35,7 @@
 </div>
 
 <div style="margin: 20px">
-    <h4>Find product :</h4>
+    <h4>Find app by ID :</h4>
     <form class="d-flex p-3 bg-light w-50" method="post" action="LoanApplicationServlet">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="findapp">
         <button class="btn btn-outline-success" type="submit">Search</button>
@@ -56,7 +56,7 @@
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label" >Product</label>
             <div class="col-sm-2">
-                <input name="productId" type="text" class="form-control" value="<%= loanApplication != null ?loanApplication.getProductId():""%>" >
+                <input name="productId" type="text" class="form-control" value="<%= loanApplication != null ?loanApplication.getProductId():""%>">
             </div>
         </div>
         <div class="row mb-3">
@@ -68,14 +68,14 @@
         <div class="row mb-3">
             <label  class="col-sm-2 col-form-label" >User</label>
             <div class="col-sm-2">
-                <input name="userId" type="text" class="form-control" value="<%= loanApplication != null ?loanApplication.getUserId():""%>" >
+                <input name="userId" type="text" class="form-control" value="<%= loanApplication != null ?loanApplication.getUserId():""%>">
             </div>
         </div>
 
         </fieldset>
 
-        <button  type="submit" class="btn btn-primary" onclick="form.action = 'EditProductServlet';">Edit</button>
-        <button  type="submit" class="btn btn-primary" onclick="form.action = 'RemoveProductServlet';">Remove</button>
+        <button  type="submit" class="btn btn-primary" onclick="form.action = 'EditAppServlet';">Edit</button>
+        <button  type="submit" class="btn btn-primary" onclick="form.action = 'RemoveAppServlet';">Remove</button>
     </form>
 </div>
 </div>

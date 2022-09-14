@@ -31,6 +31,7 @@ public class EditUserServlet extends HttpServlet {
 
             editedUser.setUsername(request.getParameter("username"));
             editedUser.setEmail(request.getParameter("email"));
+            editedUser.setJmbg(request.getParameter("jmbg"));
             editedUser.setPrivilegeId(privilege);
             userServiceLocal.edit(editedUser);
 

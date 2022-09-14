@@ -20,5 +20,6 @@ public interface LoanApplicationServiceLocal {
 
     List<LoanApplication> findByUserId(Users user);
 
+    LoanApplication findByAppId (Integer loanApplication);
     void invalidateCache();
 }

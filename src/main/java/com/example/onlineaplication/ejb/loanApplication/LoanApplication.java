@@ -3,6 +3,8 @@ package com.example.onlineaplication.ejb.loanApplication;
 import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.user.Users;
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+
 import java.io.Serializable;
 
 @Entity
@@ -18,6 +20,7 @@ public class LoanApplication implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Basic(optional = false)
     @Column(name = "amount")
@@ -94,7 +97,7 @@ public class LoanApplication implements Serializable {
 
     @Override
     public String toString() {
-        return "com.aplication.onlineaplication.ejb.LoanApplication[ id=" + id + " ]";
+        return "" + id;
     }
 
 }

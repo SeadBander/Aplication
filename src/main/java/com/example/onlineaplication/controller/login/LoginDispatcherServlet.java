@@ -18,17 +18,19 @@ public class LoginDispatcherServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        LogInModel loginModel = new LogInModel();
-        loginModel.setUsername(request.getParameter("username"));
-        loginModel.setPassword(request.getParameter("password"));
-        Users user = userServiceLocal.login(loginModel);
-        if (user != null) {
-            Session.USERS.addToSession(user, request);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.TOVIEW);
-            requestDispatcher.forward(request, response);
-        } else {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.TOLOGIN);
-            requestDispatcher.forward(request, response);
+        if(Session.USERS.getFromSession(request)==null){
+            LogInModel loginModel = new LogInModel();
+            loginModel.setUsername(request.getParameter("username"));
+            loginModel.setPassword(request.getParameter("password"));
+            Users user = userServiceLocal.login(loginModel);
+            if (user != null) {
+                Session.USERS.addToSession(user, request);
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.TOVIEW);
+                requestDispatcher.forward(request, response);
+            } else {
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher(Paths.TOLOGIN);
+                requestDispatcher.forward(request, response);
+            }
         }
     }
 

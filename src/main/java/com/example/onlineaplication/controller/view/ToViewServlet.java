@@ -15,12 +15,6 @@ import java.io.IOException;
 public class ToViewServlet extends HttpServlet {
 
 
-    @Inject
-    private ProductServiceLocal productServiceLocal;
-
-    @Inject
-    private UserServiceLocal userServiceLocal;
-
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
             String privilegeName = Session.USERS.getFromSession(request).getPrivilegeId().getName();

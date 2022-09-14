@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter( urlPatterns = { "/jsp/*" })
+@WebFilter( urlPatterns = { "/dashboard/*", "/LoanApplicationServlet", "/UserServlet", "/ProductServlet", "/ToViewServlet" })
 public class FilterClass implements Filter {
 
     private ServletContext context;

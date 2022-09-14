@@ -5,6 +5,7 @@ import com.example.onlineaplication.ejb.loanApplication.service.LoanApplicationS
 import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.product.service.ProductServiceLocal;
 import com.example.onlineaplication.ejb.user.Users;
+import com.example.onlineaplication.ejb.user.service.UserServiceLocal;
 import com.example.onlineaplication.paths.Paths;
 import com.example.onlineaplication.sesija.Session;
 import jakarta.inject.Inject;
@@ -23,11 +24,14 @@ public class LoanApplicationServlet extends HttpServlet {
 
     @Inject
     private ProductServiceLocal productServiceLocal;
+    @Inject
+    private UserServiceLocal userServiceLocal;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String privilegeName = Session.USERS.getFromSession(request).getPrivilegeId().getName();
+
 
         if (privilegeName.equalsIgnoreCase("admin")) {
 
@@ -35,15 +39,30 @@ public class LoanApplicationServlet extends HttpServlet {
             request.setAttribute("applist", allApps);
 
 
+            if (request.getParameter("findapp") == null){
+
+                List<LoanApplication> loanApplicationList = loanApplicationServiceLocal.findAll();
+                request.setAttribute("applist", loanApplicationList);
+
+
+            } else {
+                Integer appId = Integer.parseInt(request.getParameter("findapp"));
+                LoanApplication loanApplication = loanApplicationServiceLocal.find(appId);
+                request.setAttribute("findedapp",loanApplication);
+            }
+
             RequestDispatcher toView = request.getRequestDispatcher(Paths.ADMINPRODUCT);
             toView.forward(request, response);
         } else {
 
             Users userInSession = Session.USERS.getFromSession(request);
+
             List<LoanApplication> appList = loanApplicationServiceLocal.findByUserId(userInSession);
             request.setAttribute("applist", appList);
+
             List<Product> productList = productServiceLocal.findAll();
             request.setAttribute("productlist", productList);
+
 
             RequestDispatcher toView = request.getRequestDispatcher(Paths.USERPRODUCT);
             toView.forward(request, response);

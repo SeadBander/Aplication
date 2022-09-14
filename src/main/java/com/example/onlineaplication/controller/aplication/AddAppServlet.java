@@ -28,6 +28,8 @@ public class AddAppServlet extends HttpServlet {
 
         Integer productId = Integer.parseInt(request.getParameter("productid"));
         Product productToSet = productServiceLocal.find(productId);
+
+
        try{
             LoanApplication productToAdd = new LoanApplication();
             productToAdd.setUserId(userInSession);
