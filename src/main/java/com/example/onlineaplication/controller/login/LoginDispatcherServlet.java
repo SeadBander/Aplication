@@ -18,7 +18,7 @@ public class LoginDispatcherServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(Session.USERS.getFromSession(request)==null){
+
             LogInModel loginModel = new LogInModel();
             loginModel.setUsername(request.getParameter("username"));
             loginModel.setPassword(request.getParameter("password"));
@@ -32,7 +32,7 @@ public class LoginDispatcherServlet extends HttpServlet {
                 requestDispatcher.forward(request, response);
             }
         }
-    }
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
