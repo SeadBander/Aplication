@@ -3,7 +3,7 @@ package com.example.onlineaplication.ejb.loanApplication;
 import com.example.onlineaplication.ejb.product.Product;
 import com.example.onlineaplication.ejb.user.Users;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
+
 
 import java.io.Serializable;
 
